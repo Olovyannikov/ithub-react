@@ -10,7 +10,7 @@
 ## Стек
 
 1. [ReactJS](https://react.dev/);
-2. [React-router-dom]();
+2. [React Router]();
 3. [ReduxJS]();
 4. [MantineUI]();
 5. [ViteJS]();
