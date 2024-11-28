@@ -1,0 +1,5 @@
+@import url("./scaffoldings/_fonts.css");
+
+/* Mantine UI */
+@import url("@mantine/core/styles.css");
+@import url("@mantine/nprogress/styles.css");

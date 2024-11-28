@@ -5,12 +5,12 @@
 1. Версия nodejs >= 18. Проверить командой `node -v`;
 2. В корне проекта выполнить `npm install`;
 3. Запуск проекта командой `npm run dev`;
-4. Браузер откроется со страницей `https://localhost:3000`.
+4. Браузер откроется со страницей `https://localhost:5173`.
 
 ## Стек
 
 1. [ReactJS](https://react.dev/);
-2. [React Router]();
+2. [React Router](https://reactrouter.com/home);
 3. [ReduxJS]();
 4. [MantineUI]();
 5. [ViteJS]();
