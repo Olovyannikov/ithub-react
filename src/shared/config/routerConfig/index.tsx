@@ -1,24 +1,29 @@
-import type { RouteProps } from 'react-router';
-import {IndexPageLazy} from "@/pages/IndexPage";
-import {NotFoundPageLazy} from "@/pages/NotFoundPage";
+import { createBrowserRouter } from 'react-router';
+import { IndexPageLazy } from '@/pages/IndexPage';
+import { NotFoundPageLazy } from '@/pages/NotFoundPage';
+import { Loaders } from './loaders.ts';
 
-export enum AppRoutes {
-    INDEX = 'index',
-    NOT_FOUND = 'notFound',
-}
+export const AppRoutes = {
+    INDEX: 'index',
+    NOT_FOUND: 'notFound',
+} as const;
 
-export const RouterPaths: Record<AppRoutes, string> = {
+type Keys = keyof typeof AppRoutes;
+type AppRoute = (typeof AppRoutes)[Keys];
+
+const RouterPaths: Record<AppRoute, string> = {
     [AppRoutes.INDEX]: '/',
     [AppRoutes.NOT_FOUND]: '*',
 };
 
-export const routerConfig: Record<AppRoutes, RouteProps> = {
-    [AppRoutes.INDEX]: {
+export const routerConfig = createBrowserRouter([
+    {
         path: RouterPaths.index,
         element: <IndexPageLazy />,
+        loader: Loaders.index,
     },
-    [AppRoutes.NOT_FOUND]: {
+    {
         path: RouterPaths.notFound,
         element: <NotFoundPageLazy />,
     },
-};
+]);

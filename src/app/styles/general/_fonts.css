@@ -23,6 +23,14 @@
 }
 
 @font-face {
+    src: url("../../assets/fonts/Montserrat/Montserrat-Bold.woff2") format("woff2");
+    font-family: "Montserrat";
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
     src: url("../../assets/fonts/Montserrat/Montserrat-Black.woff2") format("woff2");
     font-family: "Montserrat";
     font-weight: 800;
