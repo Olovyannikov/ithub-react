@@ -2,6 +2,7 @@ import { createTheme, Container } from '@mantine/core';
 
 export const theme = createTheme({
     fontFamily: 'Montserrat, sans-serif',
+    primaryColor: 'green',
     spacing: {
         xxs: '4px',
         xs: '8px',
