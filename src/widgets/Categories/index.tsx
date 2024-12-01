@@ -2,25 +2,31 @@ import { Box, Container, Group } from '@mantine/core';
 import { Top } from '@/shared/ui';
 import { useLoaderData } from 'react-router';
 import { Card } from '@/entities/Category';
-import { Carousel } from '@mantine/carousel';
 
-export const Categories = () => {
-    const { data } = useLoaderData();
+interface CategoriesProps {
+    showAll?: boolean;
+}
 
-    console.log(data);
+export const Categories = ({ showAll = false }: CategoriesProps) => {
+    const { categories } = useLoaderData();
+
+    const renderCategories = showAll ? categories : categories.slice(0, 4);
+    const renderTitle = showAll
+        ? {}
+        : {
+              href: '/categories',
+              linkLabel: 'All categories',
+          };
 
     return (
         <Box component='section' mb={80}>
             <Container>
-                <Top mb={80} title='Categories' href='/categories' linkLabel='All categories' />
-                <Carousel withControls={false} slideSize='24%' height={392} align='start'>
-                    {data?.map((category: { title: string | undefined; image: string | undefined }) => (
-                        <Carousel.Slide key={category.title}>
-                            <Card category={category.title} imageSrc={category.image} />
-                        </Carousel.Slide>
+                <Top mb={40} title='Categories' {...renderTitle} />
+                <Group h={392}>
+                    {renderCategories.map((category: { title?: string; image?: string; id?: number }) => (
+                        <Card key={category.id} category={category.title} imageSrc={category.image} id={category.id} />
                     ))}
-                </Carousel>
-                <Group gap={32}></Group>
+                </Group>
             </Container>
         </Box>
     );

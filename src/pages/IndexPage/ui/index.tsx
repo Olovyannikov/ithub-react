@@ -1,19 +1,18 @@
 import { RootLayout } from '@/widgets/RootLayout';
-import { Hero } from '@/shared/ui';
-import { Box, Button } from '@mantine/core';
 import { Categories } from '@/widgets/Categories';
+import { FirstOrderForm } from '@/widgets/FirstOrderForm';
+import { IndexHero } from '@/widgets/IndexHero';
+import { Sales } from '@/widgets/Sales';
+import { Contacts } from '@/widgets/Contacts';
 
 export default function IndexPage() {
     return (
         <RootLayout title='Main Page'>
-            <Box component='section' mb={80}>
-                <Hero src='/images/hero@2x.jpg' title={'Amazing Discounts\non Garden Products!'}>
-                    <Button w='fit-content' size='xl' miw={218}>
-                        Check out
-                    </Button>
-                </Hero>
-            </Box>
+            <IndexHero />
             <Categories />
+            <FirstOrderForm />
+            <Sales />
+            <Contacts />
         </RootLayout>
     );
 }
