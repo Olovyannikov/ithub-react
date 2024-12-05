@@ -1,16 +1,15 @@
-import { Box, Container, Group } from '@mantine/core';
+import { Box, Center, Container, Grid, Loader } from '@mantine/core';
 import { Top } from '@/shared/ui';
-import { useLoaderData } from 'react-router';
-import { Card } from '@/entities/Category';
+import { CategoryCard, useGetAllCategoriesQuery } from '@/entities/Product';
 
 interface CategoriesProps {
     showAll?: boolean;
 }
 
 export const Categories = ({ showAll = false }: CategoriesProps) => {
-    const { categories } = useLoaderData();
+    const { data: categories, isLoading } = useGetAllCategoriesQuery();
 
-    const renderCategories = showAll ? categories : categories.slice(0, 4);
+    const renderCategories = showAll ? categories : categories?.slice(0, 4);
     const renderTitle = showAll
         ? {}
         : {
@@ -19,14 +18,28 @@ export const Categories = ({ showAll = false }: CategoriesProps) => {
           };
 
     return (
-        <Box component='section' mb={80}>
+        <Box component='section' mb={80} mt={116}>
             <Container>
                 <Top mb={40} title='Categories' {...renderTitle} />
-                <Group h={392}>
-                    {renderCategories.map((category: { title?: string; image?: string; id?: number }) => (
-                        <Card key={category.id} category={category.title} imageSrc={category.image} id={category.id} />
+                {isLoading && (
+                    <Center>
+                        <Loader />
+                    </Center>
+                )}
+                <Grid hidden={!renderCategories} grow mih={392}>
+                    {renderCategories?.map((category: { title?: string; image?: string; id?: number }) => (
+                        <Grid.Col
+                            key={category.id}
+                            span={{
+                                xs: 12,
+                                md: 4,
+                                lg: 3,
+                            }}
+                        >
+                            <CategoryCard category={category.title} imageSrc={category.image} id={category.id} />
+                        </Grid.Col>
                     ))}
-                </Group>
+                </Grid>
             </Container>
         </Box>
     );

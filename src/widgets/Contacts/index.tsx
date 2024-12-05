@@ -4,17 +4,27 @@ import { ContactPane } from './ui';
 import { BiLogoInstagramAlt, BiLogoWhatsapp } from 'react-icons/bi';
 import { Map, Placemark, YMaps } from '@pbe/react-yandex-maps';
 import { MapState, YMapsQuery } from './const';
+import { useMediaQuery } from '@mantine/hooks';
 
 export const Contacts = () => {
+    const isLarge = useMediaQuery('(min-width: 730px)');
+
     return (
         <Box component='section' mb={80}>
             <Container>
                 <Top mb={40} title='Contact' />
                 <Grid mb={32}>
-                    <Grid.Col span={6}>
-                        <ContactPane title='Phone' description='+7 (499) 350-66-04' />
+                    <Grid.Col span={isLarge ? 6 : 12}>
+                        <ContactPane
+                            title='Phone'
+                            description={
+                                <a style={{ color: 'currentcolor', textDecoration: 'none' }} href='tel:+74993506604'>
+                                    +7 (499) 350-66-04
+                                </a>
+                            }
+                        />
                     </Grid.Col>
-                    <Grid.Col span={6}>
+                    <Grid.Col span={isLarge ? 6 : 12}>
                         <ContactPane title='Socials'>
                             <ActionIcon size={38} p={0} component='a' href='#' variant='transparent'>
                                 <BiLogoInstagramAlt size={38} />
@@ -24,10 +34,10 @@ export const Contacts = () => {
                             </ActionIcon>
                         </ContactPane>
                     </Grid.Col>
-                    <Grid.Col span={6}>
+                    <Grid.Col span={isLarge ? 6 : 12}>
                         <ContactPane title='Address' description='Dubininskaya Ulitsa, 96, Moscow, Russia, 115093' />
                     </Grid.Col>
-                    <Grid.Col span={6}>
+                    <Grid.Col span={isLarge ? 6 : 12}>
                         <ContactPane title='Working Hours' description='24 hours a day' />
                     </Grid.Col>
                 </Grid>

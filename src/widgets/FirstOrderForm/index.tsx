@@ -32,7 +32,7 @@ export const FirstOrderForm = () => {
                         5% off on the first order
                     </Title>
                     <Group gap={32}>
-                        <Image w={748} h={360} src='/images/off_price_form_image@2x.png' />
+                        <Image maw={748} mah={360} src='/images/off_price_form_image@2x.png' />
                         <form
                             style={{ flex: '1' }}
                             onSubmit={form.onSubmit(
@@ -63,7 +63,7 @@ export const FirstOrderForm = () => {
                                     key={form.key('email')}
                                     {...form.getInputProps('email')}
                                 />
-                                <Button type='submit' mt={16} bg='white' c='black' size='lg'>
+                                <Button type='submit' my={16} bg='white' c='black' size='lg'>
                                     Get a discount
                                 </Button>
                             </Stack>

@@ -1,10 +1,11 @@
 import { Suspense } from 'react';
 import { RouterProvider } from 'react-router';
 import { routerConfig } from '@/shared/config/routerConfig';
+import { PageLoader } from '@/shared/ui';
 
 export const AppRouter = () => {
     return (
-        <Suspense fallback='Loading...'>
+        <Suspense fallback={<PageLoader />}>
             <RouterProvider router={routerConfig} />
         </Suspense>
     );

@@ -1,9 +1,9 @@
 import { Group, Paper, Text } from '@mantine/core';
-import { PropsWithChildren } from 'react';
+import type { PropsWithChildren, ReactNode } from 'react';
 
 interface ContactPaneProps {
     title?: string;
-    description?: string;
+    description?: ReactNode;
 }
 
 export const ContactPane = ({ title, description, children }: PropsWithChildren<ContactPaneProps>) => {

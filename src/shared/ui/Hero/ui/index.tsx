@@ -1,4 +1,4 @@
-import { BackgroundImage, BackgroundImageProps, Stack, Title } from '@mantine/core';
+import { BackgroundImage, type BackgroundImageProps, Container, Stack, Title } from '@mantine/core';
 import type { PropsWithChildren } from 'react';
 
 interface HeroProps extends BackgroundImageProps {
@@ -8,12 +8,14 @@ interface HeroProps extends BackgroundImageProps {
 export const Hero = ({ title, children, ...props }: PropsWithChildren<HeroProps>) => {
     return (
         <BackgroundImage {...props}>
-            <Stack pt={80} px={40} pb={210} gap={40}>
-                <Title c='white' fz={96}>
-                    {title}
-                </Title>
-                {children}
-            </Stack>
+            <Container pt={80} pb={210}>
+                <Stack gap={40}>
+                    <Title c='white' fz={96}>
+                        {title}
+                    </Title>
+                    {children}
+                </Stack>
+            </Container>
         </BackgroundImage>
     );
 };
