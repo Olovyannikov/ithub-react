@@ -1,5 +1,5 @@
 import { store } from '@/app/store';
-import { ProductApi, CategoriesApi, fetchProducts } from '@/entities/Product';
+import { ProductApi, CategoriesApi, fetchProducts, fetchProductById } from '@/entities/Product';
 import { LoaderFunctionArgs } from 'react-router';
 import { fetchAllProducts } from '@/entities/Product/model/AllProductsModel.ts';
 
@@ -19,6 +19,10 @@ export const Loaders = {
     },
     products: async () => {
         store.dispatch(fetchAllProducts());
+        return null;
+    },
+    product: async ({ params }: LoaderFunctionArgs<{ params: { id: string } }>) => {
+        store.dispatch(fetchProductById(Number(params.id)));
         return null;
     },
 };

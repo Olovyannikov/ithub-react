@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
+import { AllProductsModel, categoriesApi, ProductModel, productsApi } from '@/entities/Product';
 import { baseApi } from '@/shared/api/base-api.ts';
-import { categoriesApi, ProductModel, productsApi } from '@/entities/Product';
-import { AllProductsModel } from '@/entities/Product/model/AllProductsModel.ts';
+import { CartModel } from '@/entities/Cart';
 
 export const extraArgument = {
     categoriesApi,
@@ -10,9 +10,10 @@ export const extraArgument = {
 
 export const store = configureStore({
     reducer: {
+        [baseApi.reducerPath]: baseApi.reducer,
         [ProductModel.reducerPath]: ProductModel.reducer,
         [AllProductsModel.reducerPath]: AllProductsModel.reducer,
-        [baseApi.reducerPath]: baseApi.reducer,
+        [CartModel.reducerPath]: CartModel.reducer,
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({ thunk: { extraArgument } }).concat(baseApi.middleware),
 });

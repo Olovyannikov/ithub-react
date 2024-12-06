@@ -22,4 +22,11 @@ export const productsApi = {
 
         return await response.json();
     },
+    getProductById: async (id: number) => {
+        const response = await fetch(`${API.BASE_URL}${API.PRODUCT_BY_ID(id)}`, {
+            method: 'GET',
+        });
+
+        return await response.json();
+    },
 };

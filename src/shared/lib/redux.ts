@@ -5,8 +5,8 @@ import {
     buildCreateSlice,
     createAsyncThunk,
     createSelector,
-    ThunkAction,
-    UnknownAction,
+    type ThunkAction,
+    type UnknownAction,
 } from '@reduxjs/toolkit';
 
 export type AppState = ReturnType<typeof store.getState>;

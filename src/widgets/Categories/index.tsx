@@ -33,7 +33,7 @@ export const Categories = ({ showAll = false }: CategoriesProps) => {
                             span={{
                                 xs: 12,
                                 md: 4,
-                                lg: 3,
+                                lg: 1,
                             }}
                         >
                             <CategoryCard category={category.title} imageSrc={category.image} id={category.id} />

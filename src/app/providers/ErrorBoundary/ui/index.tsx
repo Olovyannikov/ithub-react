@@ -1,4 +1,4 @@
-import { Component, type ErrorInfo, type ReactNode, Suspense } from "react";
+import { Component, type ErrorInfo, type ReactNode, Suspense } from 'react';
 
 interface ErrorBoundaryProps {
     children: ReactNode;
@@ -15,7 +15,7 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
         this.state = { hasError: false };
     }
 
-    static getDerivedStateFromError(_error: Error) {
+    static getDerivedStateFromError() {
         return { hasError: true };
     }
 
@@ -28,9 +28,7 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
         const { children, fallback } = this.props;
         if (hasError) {
             if (!fallback) {
-                return <Suspense fallback='Something went wrong'>
-                    {/*<PageError/>*/}
-                </Suspense>
+                return <Suspense fallback='Something went wrong'>{/*<PageError/>*/}</Suspense>;
             }
 
             return this.props.fallback;

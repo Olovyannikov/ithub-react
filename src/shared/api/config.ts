@@ -4,4 +4,5 @@ export const API = {
     ALL_CATEGORIES: '/categories/all',
     CATEGORY_BY_ID: (id: number) => `/categories/${id}`,
     ALL_PRODUCTS: '/products/all',
+    PRODUCT_BY_ID: (id: number) => `/products/${id}`,
 };

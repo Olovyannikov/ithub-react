@@ -8,6 +8,17 @@ import eslintConfigPrettier from 'eslint-config-prettier';
 export default tseslint.config(
     { ignores: ['dist', 'node_modules', 'public'] },
     {
+        ignores: [
+            'package.json',
+            '/build',
+            'node_modules',
+            'src/app',
+            'vite.config.ts',
+            '*.d.ts',
+            'ssr.config.ts',
+            'workbox-*',
+            'sw.js',
+        ],
         extends: [js.configs.recommended, ...tseslint.configs.recommended],
         files: ['**/*.{ts,tsx}'],
         languageOptions: {
@@ -22,6 +33,7 @@ export default tseslint.config(
         rules: {
             ...reactHooks.configs.recommended.rules,
             'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+            'react-hooks/exhaustive-deps': ['off'],
         },
     }
 );

@@ -5,12 +5,16 @@ import { Loaders } from './loaders.ts';
 import { CategoriesPageLazy } from '@/pages/CategoriesPage';
 import { CategoryPageLazy } from '@/pages/CategoryPage';
 import { AllProductsPageLazy } from '@/pages/AllProductsPage';
+import { AllSalesPageLazy } from '@/pages/AllSalesPage';
+import { ProductPageLazy } from '@/pages/ProductPage/ui/lazy.ts';
 
 export const AppRoutes = {
     INDEX: 'index',
     CATEGORIES: 'categories',
     CATEGORY: 'category',
     ALL_PRODUCTS: 'products',
+    ALL_SALES: 'sales',
+    CURRENT_PRODUCT: 'product',
     NOT_FOUND: 'notFound',
 } as const;
 
@@ -22,9 +26,12 @@ const RouterPaths: Record<AppRoute, string> = {
     [AppRoutes.CATEGORIES]: '/categories',
     [AppRoutes.CATEGORY]: '/categories/:id',
     [AppRoutes.ALL_PRODUCTS]: '/products',
+    [AppRoutes.ALL_SALES]: '/sales',
+    [AppRoutes.CURRENT_PRODUCT]: '/product/:id',
     [AppRoutes.NOT_FOUND]: '*',
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const routerConfig = createBrowserRouter([
     {
         path: RouterPaths.index,
@@ -44,6 +51,16 @@ export const routerConfig = createBrowserRouter([
         path: RouterPaths.products,
         Component: AllProductsPageLazy,
         loader: Loaders.products,
+    },
+    {
+        path: RouterPaths.sales,
+        Component: AllSalesPageLazy,
+        loader: Loaders.products,
+    },
+    {
+        path: RouterPaths.product,
+        Component: ProductPageLazy,
+        loader: Loaders.product,
     },
     {
         path: RouterPaths.notFound,
