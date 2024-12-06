@@ -11,10 +11,10 @@
 
 1. [ReactJS](https://react.dev/);
 2. [React Router](https://reactrouter.com/home);
-3. [ReduxJS]();
-4. [MantineUI]();
-5. [ViteJS]();
-6. [TypeScript]();
-7. [ESLint]();
-8. [Stylelint]();
-9. [Prettier]();
+3. [ReduxJS](https://redux.js.org/);
+4. [MantineUI](https://mantine.dev/);
+5. [ViteJS](https://vitejs.dev/);
+6. [TypeScript](https://typescriptlang.org/);
+7. [ESLint](https://eslint.org/);
+8. [Stylelint](https://eslint.org/);
+9. [Prettier](https://prettier.io/);
