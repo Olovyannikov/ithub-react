@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { Box, Flex, Group, Image, Stack, Text, Title } from '@mantine/core';
+
 import { calculateDiscount } from '@/shared/lib';
 
 interface ProductCardProps {
@@ -36,7 +37,7 @@ export const ProductCard = ({ image, title, discont_price, price, description, a
                                 style={{ borderRadius: 6 }}
                                 fw={600}
                                 fz={20}
-                                lh={'26px'}
+                                lh='26px'
                             >
                                 -{calculateDiscount({ price: price ?? 0, discountPrice: discont_price ?? 0 })}%
                             </Text>

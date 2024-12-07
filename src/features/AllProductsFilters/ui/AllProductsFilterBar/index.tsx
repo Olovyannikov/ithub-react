@@ -1,4 +1,4 @@
-import { Filters, AllProductsModel } from '@/entities/Product';
+import { AllProductsModel, Filters } from '@/entities/Product';
 import { useAppSelector } from '@/shared/lib/redux.ts';
 
 interface AllProductsFilterBarProps {

@@ -1,5 +1,5 @@
-import { Button, Stack, Text } from '@mantine/core';
 import { Link } from 'react-router';
+import { Button, Stack, Text } from '@mantine/core';
 
 export const CartEmpty = () => (
     <Stack gap={32} w='fit-content'>

@@ -1,5 +1,5 @@
-import { BackgroundImage, type BackgroundImageProps, Container, Stack, Title } from '@mantine/core';
 import type { PropsWithChildren } from 'react';
+import { BackgroundImage, type BackgroundImageProps, Container, Stack, Title } from '@mantine/core';
 
 interface HeroProps extends BackgroundImageProps {
     title: string;

@@ -1,10 +1,11 @@
-import { RootLayout } from '@/widgets/RootLayout';
 import { Container } from '@mantine/core';
-import { Contacts } from '@/widgets/Contacts';
+
 import { AllProductsList, AllProductsModel, type ProductDto } from '@/entities/Product';
+import { AllProductsFilterBar } from '@/features/AllProductsFilters';
 import { useAppSelector } from '@/shared/lib/redux.ts';
 import { PageLoader } from '@/shared/ui';
-import { AllProductsFilterBar } from '@/features/AllProductsFilters';
+import { Contacts } from '@/widgets/Contacts';
+import { RootLayout } from '@/widgets/RootLayout';
 
 const { selectHasFilters, selectProducts, selectFilteredProducts, selectIsLoading } = AllProductsModel.selectors;
 

@@ -1,7 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
+
+import { CartModel } from '@/entities/Cart';
 import { AllProductsModel, categoriesApi, ProductModel, productsApi } from '@/entities/Product';
 import { baseApi } from '@/shared/api/base-api.ts';
-import { CartModel } from '@/entities/Cart';
 
 export const extraArgument = {
     categoriesApi,

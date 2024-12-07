@@ -1,6 +1,7 @@
-import type { PayloadAction } from '@reduxjs/toolkit';
-import type { ProductsModelState } from './types';
 import { isNumberLike } from '@mantine/core';
+import type { PayloadAction } from '@reduxjs/toolkit';
+
+import type { ProductsModelState } from './types';
 
 const setProductsIsDiscounted = <T>(state: ProductsModelState<T>) => {
     state.isDiscounted = !state.isDiscounted;

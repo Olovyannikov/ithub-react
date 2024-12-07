@@ -1,6 +1,7 @@
 import { Box, Center, Container, Grid, Loader } from '@mantine/core';
-import { Top } from '@/shared/ui';
+
 import { CategoryCard, useGetAllCategoriesQuery } from '@/entities/Product';
+import { Top } from '@/shared/ui';
 
 interface CategoriesProps {
     showAll?: boolean;

@@ -1,4 +1,5 @@
 import { ActionIcon, Box, CloseIcon, Group, Image, Stack, Text, Title } from '@mantine/core';
+
 import { CartProductsControls } from '../CartProductsControls';
 
 interface CartProductProps {

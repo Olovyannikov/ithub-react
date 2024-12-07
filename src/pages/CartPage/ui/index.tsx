@@ -1,7 +1,8 @@
-import { RootLayout } from '@/widgets/RootLayout';
 import { Container } from '@mantine/core';
-import { Contacts } from '@/widgets/Contacts';
+
 import { CartContainer } from '@/widgets/CartContainer';
+import { Contacts } from '@/widgets/Contacts';
+import { RootLayout } from '@/widgets/RootLayout';
 
 export default function CartPage() {
     return (

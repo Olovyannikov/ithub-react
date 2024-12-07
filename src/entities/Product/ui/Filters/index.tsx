@@ -1,6 +1,7 @@
-import { Box, Checkbox, Group, Select, Text, TextInput } from '@mantine/core';
 import { useId } from 'react';
+import { Box, Checkbox, Group, Select, Text, TextInput } from '@mantine/core';
 import type { Action } from '@reduxjs/toolkit';
+
 import { useAppDispatch } from '@/shared/lib/redux.ts';
 
 interface FiltersProps {

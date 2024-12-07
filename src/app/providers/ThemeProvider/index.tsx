@@ -1,13 +1,16 @@
-import { MantineProvider as Provider } from '@mantine/core';
 import type { PropsWithChildren } from 'react';
-import { theme } from './theme';
+import { MantineProvider as Provider } from '@mantine/core';
 import { NavigationProgress } from '@mantine/nprogress';
+
+import { theme } from './theme';
 
 import '.././../styles/index.css';
 
-export const ThemeProvider = ({ children }: PropsWithChildren) => (
-    <Provider theme={theme}>
-        <NavigationProgress />
-        {children}
-    </Provider>
-);
+export function ThemeProvider({ children }: PropsWithChildren) {
+    return (
+        <Provider theme={theme}>
+            <NavigationProgress />
+            {children}
+        </Provider>
+    );
+}

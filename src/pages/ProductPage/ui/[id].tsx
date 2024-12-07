@@ -1,9 +1,10 @@
-import { RootLayout } from '@/widgets/RootLayout';
-import { useAppSelector } from '@/shared/lib/redux.ts';
-import { AllProductsModel, ProductCard } from '@/entities/Product';
 import { Box, Container } from '@mantine/core';
-import { Contacts } from '@/widgets/Contacts';
+
+import { AllProductsModel, ProductCard } from '@/entities/Product';
 import { AddProductToCart } from '@/features/AddProductToCart';
+import { useAppSelector } from '@/shared/lib/redux.ts';
+import { Contacts } from '@/widgets/Contacts';
+import { RootLayout } from '@/widgets/RootLayout';
 
 export default function ProductPage() {
     const product = useAppSelector(AllProductsModel.selectors.selectCurrentProduct);

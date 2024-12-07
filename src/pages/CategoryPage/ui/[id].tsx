@@ -1,10 +1,11 @@
-import { RootLayout } from '@/widgets/RootLayout';
-import { CategoriesList, type CategoryByIdDto, type ProductDto, ProductModel } from '@/entities/Product';
 import { Container } from '@mantine/core';
-import { Contacts } from '@/widgets/Contacts';
+
+import { CategoriesList, type CategoryByIdDto, type ProductDto, ProductModel } from '@/entities/Product';
+import { CategoriesFilterBar } from '@/features/CategoriesProductsFilters';
 import { useAppSelector } from '@/shared/lib/redux';
 import { PageLoader } from '@/shared/ui';
-import { CategoriesFilterBar } from '../../../features/CategoriesProductsFilters';
+import { Contacts } from '@/widgets/Contacts';
+import { RootLayout } from '@/widgets/RootLayout';
 
 const { selectHasFilters, selectFilteredProducts, selectProducts, selectIsLoading } = ProductModel.selectors;
 

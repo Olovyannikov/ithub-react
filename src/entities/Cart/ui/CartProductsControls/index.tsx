@@ -1,5 +1,5 @@
-import { ActionIcon, Group, Text } from '@mantine/core';
 import { MinusIcon, PlusIcon } from '@heroicons/react/16/solid';
+import { ActionIcon, Group, Text } from '@mantine/core';
 
 interface CartProductsControlsProps {
     increment: number;

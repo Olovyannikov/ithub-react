@@ -1,6 +1,6 @@
-import { RootLayout } from '@/widgets/RootLayout';
-import { Contacts } from '@/widgets/Contacts';
 import { Categories } from '@/widgets/Categories';
+import { Contacts } from '@/widgets/Contacts';
+import { RootLayout } from '@/widgets/RootLayout';
 
 export default function CategoriesPage() {
     return (

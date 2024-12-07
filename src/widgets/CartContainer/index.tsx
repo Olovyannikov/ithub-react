@@ -1,10 +1,12 @@
-import { Box, Button, Group, Modal, Paper, Stack, Text, TextInput, Title } from '@mantine/core';
-import { Top } from '@/shared/ui';
-import { useAppDispatch, useAppSelector } from '@/shared/lib/redux.ts';
-import { CartEmpty, CartModel, CartProduct } from '@/entities/Cart';
-import { getDeclinations } from '@/shared/lib/getDeclinations.ts';
+import { Box, Button, Group, Paper, Stack, TextInput } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { useDisclosure } from '@mantine/hooks';
+
+import { CartEmpty, CartModel, CartProduct } from '@/entities/Cart';
+import { useAppDispatch, useAppSelector } from '@/shared/lib/redux.ts';
+import { Top } from '@/shared/ui';
+
+import { OrderDetails, SuccessModal } from './ui';
 
 export const CartContainer = () => {
     const dispatch = useAppDispatch();
@@ -52,33 +54,22 @@ export const CartContainer = () => {
                         />
                     ))}
                     <Paper w='100%' maw={548} bg='gray.1' p={32} radius='sm' display={count === 0 ? 'none' : 'block'}>
-                        <Box mb={32}>
-                            <Title mb={24} fz={40}>
-                                Order details
-                            </Title>
-                            <Text c='gray' fz={40} fw={500}>
-                                {getDeclinations({ count, one: 'item', few: 'items', many: 'items' })}
-                            </Text>
-                            <Group justify='space-between' align='baseline'>
-                                <Text c='gray' fz={40} fw={500}>
-                                    Total
-                                </Text>
-                                <Text fw={700} fz={64} lh={1}>
-                                    ${total}
-                                </Text>
-                            </Group>
-                        </Box>
+                        <OrderDetails count={count} total={total} />
                         <Box
+                            component='form'
                             onSubmit={form.onSubmit(
                                 (values) => {
                                     open();
+                                    // test
+                                    //eslint-disable-next-line no-console
                                     console.log({ values });
                                 },
                                 (errors) => {
+                                    // test
+                                    //eslint-disable-next-line no-console
                                     console.log(errors);
                                 }
                             )}
-                            component='form'
                         >
                             <Stack gap={16}>
                                 <TextInput
@@ -113,26 +104,7 @@ export const CartContainer = () => {
                     </Paper>
                 </Group>
             </Box>
-            <Modal.Root centered opened={opened} onClose={close}>
-                <Modal.Overlay />
-                <Modal.Content>
-                    <Modal.Header bg='green.9' c='white'>
-                        <Modal.Title fw={500} fz={40}>
-                            Congratulations!
-                        </Modal.Title>
-                        <Modal.CloseButton c='white' size='xl' />
-                    </Modal.Header>
-                    <Modal.Body c='white' bg='green.9'>
-                        <Text fz={20} lh={1} fw={500}>
-                            Your order has been successfully placed on the website.
-                        </Text>
-                        <br />
-                        <Text fz={20} lh={1} fw={500}>
-                            A manager will contact you shortly to confirm your order.
-                        </Text>
-                    </Modal.Body>
-                </Modal.Content>
-            </Modal.Root>
+            <SuccessModal close={close} opened={opened} />
         </>
     );
 };

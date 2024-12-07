@@ -1,13 +1,15 @@
 import { createBrowserRouter } from 'react-router';
-import { IndexPageLazy } from '@/pages/IndexPage';
-import { NotFoundPageLazy } from '@/pages/NotFoundPage';
-import { Loaders } from './loaders.ts';
-import { CategoriesPageLazy } from '@/pages/CategoriesPage';
-import { CategoryPageLazy } from '@/pages/CategoryPage';
+
 import { AllProductsPageLazy } from '@/pages/AllProductsPage';
 import { AllSalesPageLazy } from '@/pages/AllSalesPage';
-import { ProductPageLazy } from '@/pages/ProductPage/ui/lazy.ts';
 import { CartPageLazy } from '@/pages/CartPage';
+import { CategoriesPageLazy } from '@/pages/CategoriesPage';
+import { CategoryPageLazy } from '@/pages/CategoryPage';
+import { IndexPageLazy } from '@/pages/IndexPage';
+import { NotFoundPageLazy } from '@/pages/NotFoundPage';
+import { ProductPageLazy } from '@/pages/ProductPage/ui/lazy.ts';
+
+import { Loaders } from './loaders.ts';
 
 export const AppRoutes = {
     INDEX: 'index',

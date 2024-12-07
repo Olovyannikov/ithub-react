@@ -1,8 +1,10 @@
-import type { Product } from '../../types';
-import { Box, Grid, Pagination, Title } from '@mantine/core';
 import { type ReactNode, useEffect, useState } from 'react';
+import { Box, Grid, Pagination, Title } from '@mantine/core';
+
 import { ProductItem } from '@/entities/Product';
 import { chunk } from '@/shared/lib/chunk.ts';
+
+import type { Product } from '../../types';
 
 interface AllProductsListProps {
     title: string;

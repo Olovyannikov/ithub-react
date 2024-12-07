@@ -1,5 +1,5 @@
-import { Group, Paper, Text } from '@mantine/core';
 import type { PropsWithChildren, ReactNode } from 'react';
+import { Group, Paper, Text } from '@mantine/core';
 
 interface ContactPaneProps {
     title?: string;

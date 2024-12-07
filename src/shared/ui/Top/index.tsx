@@ -1,5 +1,5 @@
-import { Button, Divider, Group, GroupProps, Title } from '@mantine/core';
 import { Link } from 'react-router';
+import { Button, Divider, Group, GroupProps, Title } from '@mantine/core';
 
 interface TopProps extends GroupProps {
     title: string;

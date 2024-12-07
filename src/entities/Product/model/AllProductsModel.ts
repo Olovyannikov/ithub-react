@@ -1,21 +1,10 @@
+import type { Product } from '@/entities/Product';
 import { createAppAsyncThunk, createSlice } from '@/shared/lib/redux.ts';
+
 import type { ProductDto } from '../api/dto.ts';
-import type { ProductsModelState } from './types.ts';
 import { reducers } from './reducers.ts';
 import { selectors } from './selectors.ts';
-import type { Product } from '@/entities/Product';
-
-export const fetchAllProducts = createAppAsyncThunk<ProductDto, void>(
-    'allProducts/fetchAllProducts',
-    (_, thunkAPI) => {
-        return thunkAPI.extra.productsApi.getAllProducts();
-    },
-    {
-        condition(_, { getState }) {
-            return AllProductsModel.selectors.selectIsIdle(getState());
-        },
-    }
-);
+import type { ProductsModelState } from './types.ts';
 
 export const fetchProductById = createAppAsyncThunk<Product[], number>(
     'allProducts/fetchProductById',
@@ -64,3 +53,15 @@ export const AllProductsModel = createSlice({
         });
     },
 });
+
+export const fetchAllProducts = createAppAsyncThunk<ProductDto, void>(
+    'allProducts/fetchAllProducts',
+    (_, thunkAPI) => {
+        return thunkAPI.extra.productsApi.getAllProducts();
+    },
+    {
+        condition(_, { getState }) {
+            return AllProductsModel.selectors.selectIsIdle(getState());
+        },
+    }
+);

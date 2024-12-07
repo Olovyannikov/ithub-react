@@ -1,5 +1,6 @@
-import { Helmet } from 'react-helmet';
 import type { PropsWithChildren } from 'react';
+import { Helmet } from 'react-helmet';
+
 import { Header } from './ui';
 
 interface RootLayoutProps {

@@ -1,6 +1,7 @@
-import { store } from '@/app/store';
-import { ProductApi, CategoriesApi, fetchProducts, fetchProductById } from '@/entities/Product';
 import { LoaderFunctionArgs } from 'react-router';
+
+import { store } from '@/app/store';
+import { CategoriesApi, fetchProductById, fetchProducts, ProductApi } from '@/entities/Product';
 import { fetchAllProducts } from '@/entities/Product/model/AllProductsModel.ts';
 
 export const Loaders = {

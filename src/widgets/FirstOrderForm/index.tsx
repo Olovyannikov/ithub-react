@@ -37,9 +37,13 @@ export const FirstOrderForm = () => {
                             style={{ flex: '1' }}
                             onSubmit={form.onSubmit(
                                 (values) => {
+                                    // test
+                                    //eslint-disable-next-line no-console
                                     console.log({ values });
                                 },
                                 (errors) => {
+                                    // test
+                                    //eslint-disable-next-line no-console
                                     console.log(errors);
                                 }
                             )}

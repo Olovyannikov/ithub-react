@@ -1,4 +1,3 @@
-import { extraArgument, store } from '@/app/store';
 import { useDispatch, useSelector, useStore } from 'react-redux';
 import {
     asyncThunkCreator,
@@ -8,6 +7,8 @@ import {
     type ThunkAction,
     type UnknownAction,
 } from '@reduxjs/toolkit';
+
+import { extraArgument, store } from '@/app/store';
 
 export type AppState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

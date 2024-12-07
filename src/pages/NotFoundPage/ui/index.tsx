@@ -1,7 +1,8 @@
-import { RootLayout } from '@/widgets/RootLayout';
-import { Button, Container, Image, Stack, Text, Title } from '@mantine/core';
 import { Link } from 'react-router';
+import { Button, Container, Image, Stack, Text, Title } from '@mantine/core';
+
 import { Contacts } from '@/widgets/Contacts';
+import { RootLayout } from '@/widgets/RootLayout';
 
 export default function NotFoundPage() {
     return (
@@ -10,7 +11,7 @@ export default function NotFoundPage() {
                 <Stack m='auto' maw={690}>
                     <Stack ta='center' gap={32} mb={32}>
                         <Image src='/images/404.png' alt='Not Found' />
-                        <Title fz={64} lh={'70px'}>
+                        <Title fz={64} lh='70px'>
                             Page Not Found
                         </Title>
                         <Text c='gray' fw={500} fz={20}>

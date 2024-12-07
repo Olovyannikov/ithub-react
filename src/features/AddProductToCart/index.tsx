@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Button, Group } from '@mantine/core';
+
 import { CartModel, type CurrentCartProduct } from '@/entities/Cart';
-import { useAppDispatch, useAppSelector } from '@/shared/lib/redux.ts';
 import { CartProductsControls } from '@/entities/Cart/ui/CartProductsControls';
+import { useAppDispatch, useAppSelector } from '@/shared/lib/redux.ts';
 
 interface AddProductToCartProps {
     product: CurrentCartProduct;
@@ -19,8 +20,8 @@ export const AddProductToCart = ({ product }: AddProductToCartProps) => {
         setIncrement(currentProductFromCart?.count ?? 0);
     }, [product]);
 
-    const onIncrement = () => setIncrement((prev) => (prev += 1));
-    const onDecrement = () => setIncrement((prev) => (prev -= 1));
+    const onIncrement = () => setIncrement(() => increment + 1);
+    const onDecrement = () => setIncrement(() => increment - 1);
 
     return (
         <Group my={32}>

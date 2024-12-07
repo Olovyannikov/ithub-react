@@ -1,7 +1,8 @@
-import { baseApi } from '@/shared/api/base-api.ts';
 import { API } from '@/shared/api';
-import type { CategoriesDto, CategoryByIdDto, CategoryId } from './dto.ts';
+import { baseApi } from '@/shared/api/base-api.ts';
+
 import { CategoryDtoSchema } from '../types';
+import type { CategoriesDto, CategoryByIdDto, CategoryId } from './dto.ts';
 
 export const CategoriesApi = baseApi.injectEndpoints({
     endpoints: (build) => ({

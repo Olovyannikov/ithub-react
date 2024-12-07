@@ -1,4 +1,4 @@
-import { ProductModel, Filters } from '@/entities/Product';
+import { Filters, ProductModel } from '@/entities/Product';
 import { useAppSelector } from '@/shared/lib/redux.ts';
 
 export const CategoriesFilterBar = () => {

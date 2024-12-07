@@ -1,7 +1,9 @@
-import { Badge, Card, Group, Image, Text } from '@mantine/core';
 import { Link } from 'react-router';
-import type { Product } from '../../types';
+import { Badge, Card, Group, Image, Text } from '@mantine/core';
+
 import { calculateDiscount } from '@/shared/lib';
+
+import type { Product } from '../../types';
 
 type ProductItemProps = Partial<Product>;
 

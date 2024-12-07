@@ -1,5 +1,5 @@
-import { Button, Image, Stack, Text } from '@mantine/core';
 import { Link } from 'react-router';
+import { Button, Image, Stack, Text } from '@mantine/core';
 
 interface CategoryCardProps {
     imageSrc?: string;

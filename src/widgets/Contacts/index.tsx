@@ -1,10 +1,12 @@
-import { ActionIcon, Box, Container, Grid } from '@mantine/core';
-import { Top } from '@/shared/ui';
-import { ContactPane } from './ui';
 import { BiLogoInstagramAlt, BiLogoWhatsapp } from 'react-icons/bi';
-import { Map, Placemark, YMaps } from '@pbe/react-yandex-maps';
-import { MapState, YMapsQuery } from './const';
+import { ActionIcon, Box, Container, Grid } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
+import { Map, Placemark, YMaps } from '@pbe/react-yandex-maps';
+
+import { Top } from '@/shared/ui';
+
+import { MapState, YMapsQuery } from './const';
+import { ContactPane } from './ui';
 
 export const Contacts = () => {
     const isLarge = useMediaQuery('(min-width: 730px)');

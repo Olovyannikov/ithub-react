@@ -1,8 +1,9 @@
 import { createAppAsyncThunk, createSlice } from '@/shared/lib/redux.ts';
+
 import type { CategoryByIdDto } from '../api/dto';
-import type { ProductsModelState } from './types';
 import { reducers } from './reducers';
 import { selectors } from './selectors';
+import type { ProductsModelState } from './types';
 
 export const fetchProducts = createAppAsyncThunk<CategoryByIdDto, number>('products/fetchProducts', (id, thunkAPI) => {
     return thunkAPI.extra.categoriesApi.getCategoryProductsById(id);
