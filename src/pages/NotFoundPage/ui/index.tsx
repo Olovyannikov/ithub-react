@@ -10,7 +10,7 @@ export default function NotFoundPage() {
             <Container my={80}>
                 <Stack m='auto' maw={690}>
                     <Stack ta='center' gap={32} mb={32}>
-                        <Image src='/images/404.png' alt='Not Found' />
+                        <Image src='/images/404.webp' alt='Not Found' />
                         <Title fz={64} lh='70px'>
                             Page Not Found
                         </Title>

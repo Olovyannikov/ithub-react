@@ -2,6 +2,9 @@
 *.png
 *.json
 *.md
+*.jpeg
+*.jpg
+*.webp
 
 .gitignore
 .prettierignore
@@ -22,4 +25,3 @@ node_modules
 *.ico
 workbox*
 sw.js
-.eslintignore

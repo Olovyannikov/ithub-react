@@ -32,7 +32,7 @@ export const FirstOrderForm = () => {
                         5% off on the first order
                     </Title>
                     <Group gap={32}>
-                        <Image maw={748} mah={360} src='/images/off_price_form_image@2x.png' />
+                        <Image maw={748} mah={360} src='/images/off_price_form_image@2x.webp' />
                         <form
                             style={{ flex: '1' }}
                             onSubmit={form.onSubmit(
