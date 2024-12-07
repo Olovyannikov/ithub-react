@@ -1,7 +1,8 @@
+import type { ProductDto } from '../api/dto';
+import { ProductDtoSchema } from '../types';
+
 import { baseApi } from '@/shared/api/base-api.ts';
-import { ProductDto } from '@/entities/Product/api/dto.ts';
 import { API } from '@/shared/api';
-import { ProductDtoSchema } from '@/entities/Product/types';
 
 export const ProductApi = baseApi.injectEndpoints({
     endpoints: (build) => ({

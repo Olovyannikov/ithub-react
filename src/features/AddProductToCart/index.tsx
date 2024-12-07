@@ -1,47 +1,30 @@
-import { ActionIcon, Button, Group, Text } from '@mantine/core';
-import { useState } from 'react';
-import { MinusIcon, PlusIcon } from '@heroicons/react/16/solid';
-import { CartModel, CartProduct } from '@/entities/Cart';
+import { useEffect, useState } from 'react';
+import { Button, Group } from '@mantine/core';
+import { CartModel, type CurrentCartProduct } from '@/entities/Cart';
 import { useAppDispatch, useAppSelector } from '@/shared/lib/redux.ts';
+import { CartProductsControls } from '@/entities/Cart/ui/CartProductsControls';
 
 interface AddProductToCartProps {
-    product: CartProduct;
+    product: CurrentCartProduct;
 }
 
 export const AddProductToCart = ({ product }: AddProductToCartProps) => {
-    const [increment, setIncrement] = useState(0);
-
     const dispatch = useAppDispatch();
+    const currentProductFromCart = useAppSelector((state) =>
+        CartModel.selectors.selectCurrentProductFromCart(state, product.id)
+    );
+    const [increment, setIncrement] = useState(() => currentProductFromCart?.count ?? 0);
 
-    const prods = useAppSelector(CartModel.selectors.selectCartProducts);
-    const total = useAppSelector(CartModel.selectors.selectCartTotalPrice);
-    const count = useAppSelector(CartModel.selectors.selectCartCount);
+    useEffect(() => {
+        setIncrement(currentProductFromCart?.count ?? 0);
+    }, [product]);
 
-    console.log({ prods, total, count });
+    const onIncrement = () => setIncrement((prev) => (prev += 1));
+    const onDecrement = () => setIncrement((prev) => (prev -= 1));
 
     return (
         <Group my={32}>
-            <Group gap={0}>
-                <ActionIcon
-                    variant='default'
-                    radius='xxs'
-                    c='gray'
-                    size='lg'
-                    onClick={() => (increment < 1 ? null : setIncrement((increment) => increment - 1))}
-                >
-                    <MinusIcon width={16} />
-                </ActionIcon>
-                <Text px='lg'>{increment}</Text>
-                <ActionIcon
-                    c='gray'
-                    size='lg'
-                    variant='default'
-                    radius='xxs'
-                    onClick={() => setIncrement((increment) => increment + 1)}
-                >
-                    <PlusIcon width={16} />
-                </ActionIcon>
-            </Group>
+            <CartProductsControls increment={increment} setIncrement={onIncrement} setDecrement={onDecrement} />
             <Button
                 flex={1}
                 maw={316}

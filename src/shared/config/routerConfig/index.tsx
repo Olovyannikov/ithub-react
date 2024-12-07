@@ -7,6 +7,7 @@ import { CategoryPageLazy } from '@/pages/CategoryPage';
 import { AllProductsPageLazy } from '@/pages/AllProductsPage';
 import { AllSalesPageLazy } from '@/pages/AllSalesPage';
 import { ProductPageLazy } from '@/pages/ProductPage/ui/lazy.ts';
+import { CartPageLazy } from '@/pages/CartPage';
 
 export const AppRoutes = {
     INDEX: 'index',
@@ -15,6 +16,7 @@ export const AppRoutes = {
     ALL_PRODUCTS: 'products',
     ALL_SALES: 'sales',
     CURRENT_PRODUCT: 'product',
+    CART: 'cart',
     NOT_FOUND: 'notFound',
 } as const;
 
@@ -28,6 +30,7 @@ const RouterPaths: Record<AppRoute, string> = {
     [AppRoutes.ALL_PRODUCTS]: '/products',
     [AppRoutes.ALL_SALES]: '/sales',
     [AppRoutes.CURRENT_PRODUCT]: '/product/:id',
+    [AppRoutes.CART]: '/cart',
     [AppRoutes.NOT_FOUND]: '*',
 };
 
@@ -61,6 +64,10 @@ export const routerConfig = createBrowserRouter([
         path: RouterPaths.product,
         Component: ProductPageLazy,
         loader: Loaders.product,
+    },
+    {
+        path: RouterPaths.cart,
+        Component: CartPageLazy,
     },
     {
         path: RouterPaths.notFound,

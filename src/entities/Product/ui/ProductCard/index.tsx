@@ -15,14 +15,14 @@ export const ProductCard = ({ image, title, discont_price, price, description, a
     return (
         <Box>
             <Flex gap={32}>
-                <Image maw={780} mah={572} w='100%' h='100%' src={image} alt={title} />
+                <Image radius='lg' maw={780} mah={572} w='100%' h='100%' src={image} alt={title} />
                 <Stack>
                     <Title fz={40} mb={32} lh={1}>
                         {title}
                     </Title>
                     <Group gap={32} align='baseline'>
                         <Text lh={1} fz={64} fw='bold'>
-                            ${price}
+                            ${discont_price ?? price}
                         </Text>
                         <Box hidden={!discont_price} pos='relative'>
                             <Text
@@ -41,7 +41,7 @@ export const ProductCard = ({ image, title, discont_price, price, description, a
                                 -{calculateDiscount({ price: price ?? 0, discountPrice: discont_price ?? 0 })}%
                             </Text>
                             <Text fz={40} lh={1} td='line-through' c='gray' hidden={!discont_price}>
-                                ${discont_price}
+                                ${price}
                             </Text>
                         </Box>
                     </Group>

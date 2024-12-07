@@ -10,7 +10,7 @@ interface CartButtonProps {
 
 export const CartButton = ({ counter = 0 }: CartButtonProps) => {
     return (
-        <Indicator disabled={counter === 0} label={counter}>
+        <Indicator disabled={counter === 0} label={counter} size='lg' inline>
             <Link className={s.btn} to={'/cart'}>
                 <ShoppingBagIcon />
             </Link>

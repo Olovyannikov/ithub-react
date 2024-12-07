@@ -1,5 +1,5 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
-import type { Cart, CartProduct } from '../types';
+import type { Cart, CurrentCartProduct } from '../types';
 
 const initialState: Cart = {
     total: 0,
@@ -10,7 +10,7 @@ export const CartModel = createSlice({
     name: 'cartModel',
     initialState,
     reducers: {
-        addProductToCart: (state, action: PayloadAction<CartProduct>) => {
+        addProductToCart: (state, action: PayloadAction<CurrentCartProduct>) => {
             const index = state.products.findIndex((el) => el.id === action.payload.id);
 
             if (index === -1) {
@@ -33,12 +33,9 @@ export const CartModel = createSlice({
 
             const index = state.products.findIndex((el) => el.id === action.payload);
 
-            if (index && state.products[index].count) {
-                state.products[index].count -= 1;
-
-                if (state.products[index].count < 1) {
-                    state.products = state.products.filter((product) => product.id !== action.payload);
-                }
+            state.products[index].count = (state.products[index].count ?? 0) - 1;
+            if (state.products[index].count < 1) {
+                state.products = state.products.filter((product) => product.id !== action.payload);
             }
         },
         removeAllSameProductsFromCart: (state, action: PayloadAction<number>) => {
@@ -55,5 +52,6 @@ export const CartModel = createSlice({
         selectCartProducts: (state) => state.products,
         selectCartCount: (state) => state.products.reduce((acc, product) => acc + (product.count ?? 0), 0),
         selectCartTotalPrice: (state) => state.total,
+        selectCurrentProductFromCart: (state, action: number) => state.products.find((el) => el.id === action),
     },
 });

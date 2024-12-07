@@ -1,11 +1,15 @@
 import { Box, Container, Divider, Flex, Image } from '@mantine/core';
 
 import { Navigation } from '../Navigation';
-import { CartButton } from '@/entities/Cart';
+import { CartButton, CartModel } from '@/entities/Cart';
 import { Link } from 'react-router';
+import { useAppSelector } from '@/shared/lib/redux.ts';
+
 import s from './Header.module.css';
 
 export const Header = () => {
+    const productsCounter = useAppSelector(CartModel.selectors.selectCartCount);
+
     return (
         <Box component='header'>
             <Container py='xl'>
@@ -14,7 +18,7 @@ export const Header = () => {
                         <Image className={s.logo} width={70} height={70} src='/logo.svg' alt='Logotype' />
                     </Link>
                     <Navigation />
-                    <CartButton counter={0} />
+                    <CartButton counter={productsCounter} />
                 </Flex>
             </Container>
             <Divider />
